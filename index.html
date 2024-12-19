@@ -128,13 +128,34 @@
             font-size: 18px;
         }
         .section {
-            padding: 100px 30px;
-            text-align: left;
-            background: #fff;
-            color: #333;
-            width: 100%;
-            margin: 0;
-            min-height: 400px;
+      padding: 100px 30px;   /* Innenabstand oben/unten und links/rechts */
+      text-align: left;       /* Textausrichtung auf der linken Seite */
+      background: #fff;       /* Hintergrundfarbe */
+      color: #333;            /* Textfarbe */
+      width: 100%;            /* Volle Breite */
+      margin: 0;              /* Kein äußerer Abstand */
+      min-height: 400px;      /* Minimale Höhe */
+      box-sizing: border-box; /* Box-Modell berücksichtigen */
+    }
+
+    /* Text in .section */
+    .section p {
+      text-align: center;    /* Text zentrieren */
+      line-height: 1.6;       /* Zeilenhöhe für bessere Lesbarkeit */
+      font-size: 20px;        /* Schriftgröße */
+      margin-bottom: 20px;    /* Abstand nach den Absätzen */
+    }
+
+    /* Responsivität für kleinere Bildschirme */
+    @media (max-width: 600px) {
+      .section {
+        padding: 50px 20px;  /* Weniger Padding auf kleinen Bildschirmen */
+      }
+
+      .section p {
+        font-size: 16px;     /* Kleinere Schriftgröße auf kleinen Bildschirmen */
+      }
+    }
         }
         .section h2 {
             font-size: 56px;
@@ -142,11 +163,7 @@
             text-align: center;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
-        .section p {
-            font-size: 20px;
-            margin-top: 5%;
-            line-height: 1.6;
-        }
+       
         .section .button {
             display: inline-block;
             padding: 1% 2%;
@@ -180,13 +197,36 @@
         .right .button {
             margin-top: 5%;
         }
-        #funktionen {
-            margin-left: 5%;
-            color: white;
-            background-color: #3B3678;
-            width: 100%;
-            max-width: calc(80% - 0px);
-        }
+		
+          #funktionen {
+			margin-left: 5%;              
+			color: white;                  
+			background-color: #3B3678;     
+			width: 100%;                   
+			max-width: calc(80% - 0px);     
+			padding: 20px;                 
+			box-sizing: border-box;         
+			margin-right: auto;           
+			margin-left: auto;              
+    }
+
+    
+    #funktionen p {
+      text-align: center;           
+      line-height: 1.6;                
+      font-size: 16px;                
+      margin-bottom: 20px;             
+    }
+
+   
+    @media (max-width: 600px) {
+      #funktionen {
+        padding: 15px;                
+      }
+      #funktionen p {
+        font-size: 14px;          
+      }
+    }
         .section {
             text-align: center;
             margin-bottom: 5%;
