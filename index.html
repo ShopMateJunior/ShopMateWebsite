@@ -25,36 +25,36 @@
             position: fixed;
             width: 100%;
             z-index: 1000;
-            top: 0; /* Fixieren des Headers am oberen Rand */
+            top: 0;
         }
         .header a {
             color: #ffffff;
             text-decoration: none;
-            margin: 0 5%; /* Margin angepasst */
+            margin: 0 5%;
             font-weight: bold;
             transition: color 0.3s;
         }
         .header a:hover {
-            color: #FFD700; /* Goldene Farbe beim Hover */
+            color: #FFD700;
         }
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: calc(100vh - 80px); /* Höhe angepasst für Header */
+            height: calc(100vh - 80px);
             text-align: center;
-            padding-top: 10%; /* Platz für Header */
+            padding-top: 10%;
         }
         .container h1 {
-            font-size: 64px; /* Größere Schriftgröße */
+            font-size: 64px;
             margin-top: 5%;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Schatten für Überschrift */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         .container p {
-            font-size: 24px; /* Größere Schriftgröße für den Text */
+            font-size: 24px;
             margin-bottom: 3%;
-            max-width: 100%; /* Maximalbreite für den Text */
+            max-width: 100%;
         }
         .buttons {
             display: flex;
@@ -66,14 +66,15 @@
         }
         .app-preview {
             display: flex;
-            margin-top: 3%;
-            gap: 10%;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         .phone {
-            width: 200px; /* Breite angepasst */
-            height: 440px; /* Höhe angepasst */
-            background: #ffffff; /* Hintergrundfarbe für das iPhone */
-            border-radius: 40px; /* Abgerundete Ecken für das iPhone */
+            width: 200px;
+            height: 440px;
+            background: #ffffff;
+            border-radius: 40px;
             overflow: hidden;
             position: relative;
             display: flex;
@@ -81,13 +82,14 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Schatten hinzugefügt */
-            transition: transform 0.3s; /* Übergang für Animation */
-            border: 5px solid #3B3678; /* Rand hinzugefügt */
-			border-color: grey;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+            border: 5px solid #3B3678;
+            border-color: grey;
+            flex-shrink: 0;
         }
         .phone:hover {
-            transform: scale(1.05); /* Leichte Vergrößerung beim Hover */
+            transform: scale(1.05);
         }
         .phone::before {
             content: '';
@@ -97,7 +99,7 @@
             transform: translateX(-50%);
             width: 50px;
             height: 5px;
-            background: #333; /* Statusleiste */
+            background: #333;
             border-radius: 10px;
         }
         .phone::after {
@@ -106,9 +108,9 @@
             bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px; /* Größe der Home-Taste */
+            width: 80px;
             height: 5px;
-            background: #333; /* Home-Taste */
+            background: #333;
             border-radius: 10px;
         }
         .app-content {
@@ -116,35 +118,34 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: left; /* Text linksbündig für Listenansicht */
-            color: #333; /* Textfarbe auf Handy */
-            font-weight: bold; /* Fett für bessere Sichtbarkeit */
+            text-align: left;
+            color: #333;
+            font-weight: bold;
             padding: 10px;
-			
         }
         .app-content p {
             margin: 5% 0;
-            font-size: 18px; /* Schriftgröße für den Inhalt */
+            font-size: 18px;
         }
         .section {
             padding: 100px 30px;
             text-align: left;
             background: #fff;
             color: #333;
-            width: 100%; /* Vollständige Breite */
-            margin: 0; /* Kein Margin */
-            min-height: 400px; /* Mindesthöhe für die Sektion */
+            width: 100%;
+            margin: 0;
+            min-height: 400px;
         }
         .section h2 {
-            font-size: 56px; /* Größere Schriftgröße */
+            font-size: 56px;
             margin-top: 10%;
-            text-align: center; /* Zentrierung */
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Schatten hinzugefügt */
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
         .section p {
-            font-size: 20px; /* Größere Schriftgröße für den Text */
+            font-size: 20px;
             margin-top: 5%;
-            line-height: 1.6; /* Zeilenhöhe für bessere Lesbarkeit */
+            line-height: 1.6;
         }
         .section .button {
             display: inline-block;
@@ -180,14 +181,16 @@
             margin-top: 5%;
         }
         #funktionen {
+            margin-left: 5%;
+            color: white;
             background-color: #3B3678;
-            color: #fff;
-            padding: 1%;
-			padding-right:  5%;
-            width: 100%;			/* Vollständige Breite für Funktionen */
-			max-width: calc(90% - 40px);
-            margin-bottom: 5%; /* Kein Margin */
-            min-height: 15%; /* Höhe der Funktionen-Sektion */
+            width: 100%;
+            max-width: calc(80% - 0px);
+        }
+        .section {
+            text-align: center;
+            margin-bottom: 5%;
+            min-height: 15%;
         }
         .icon-container {
             display: flex;
@@ -197,38 +200,33 @@
         }
         .icon {
             text-align: center;
+            font-size: 1px;
         }
         .icon img {
-            width: 50px; /* Größere Icons */
+            width: 50px;
             height: 50px;
         }
         .vision-section {
             background-color: #ffffff;
             color: #333;
-           
-            width: 100%; /* Vollständige Breite für Vision */
-            margin: 0; /* Kein Margin */
-            min-height: 15%; /* Höhe der Vision-Sektion */
+            width: 100%;
+            margin: 0;
+            min-height: 15%;
         }
-		
-		
-		
         .vision-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 100%; /* Maximale Breite für die Vision-Sektion */
- 
+            max-width: 100%;
         }
-     
         .vision-content .text {
-			font-weight: bold;
-			display: flex;
-			margin: 10%;
+            font-weight: bold;
+            display: flex;
+            margin: 10%;
             flex: 2;
-            font-size: 20px; /* Größere Schriftgröße für den Text */
-            text-align: center; /* Zentrierung */
-            line-height: 1.6; /* Zeilenhöhe für bessere Lesbarkeit */
+            font-size: 20px;
+            text-align: center;
+            line-height: 1.6;
         }
         .header h1 {
             font-size: 32px;
@@ -246,11 +244,11 @@
         }
         .footer-content h3 {
             margin-bottom: 3%;
-            font-size: 24px; /* Größere Schriftgröße */
+            font-size: 24px;
         }
         .footer-content p {
             margin: 1% 0;
-            font-size: 18px; /* Größere Schriftgröße */
+            font-size: 18px;
         }
         .social-media a {
             margin: 0 2%;
@@ -259,19 +257,33 @@
             transition: color 0.4s;
         }
         .social-media a:hover {
-            color: #FFD700; /* Goldene Farbe beim Hover */
+            color: #FFD700;
         }
-		.shopmateprodukte {
-     border-radius: 10%;
-}
+        .shopmateprodukte {
+            border-radius: 10%;
+        }
+        .social-media img {
+            margin-top: 2%;
+            margin-bottom: 1%;
+            width: 5%;
+            cursor: pointer;
+        }
 
-		.social-media img {
-		 margin-top: 2%;
-		 margin-bottom: 1%;
-		 width: 5%;
-           cursor: pointer;
-		}
-	
+        /* Responsive Anpassungen für Handys */
+        @media (max-width: 768px) {
+            .phone {
+                width: 150px;
+                height: 330px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .phone {
+                width: 120px;
+                height: 260px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -289,7 +301,6 @@
 		<a href="https://shopmate-89d91.firebaseapp.com/" target="_blank">
             <img src="shopmateprodukte.jpg" alt="Download ShopMate App im App Store" class="shopmateprodukte" >
 		</a>
-		
         </div>
         <div class="app-preview">
             <div class="phone">
@@ -333,17 +344,12 @@
                 <img src="lock_icon.png" alt="Sichere Zahlung">
                 <p>Sichere Zahlung</p>
             </div>
-            <div class="icon">
-                <img src="star_icon.png" alt="24/7 Unterstützung">
-                <p>24/7 Unterstützung</p>
-            </div>
         </div>
     </div>
     
     <div id="about" class="vision-section">
         <div class="vision-content">
             <div class="title">
-              
             </div>
             <div class="text">
                 <p>Wir bei ShopMate sind leidenschaftlich daran interessiert, unseren Kunden die besten Einkaufserlebnisse zu bieten. Unsere App wird ständig weiterentwickelt, um Ihren Bedürfnissen gerecht zu werden.</p>
@@ -365,18 +371,5 @@
             <p>&copy; 2024 ShopMate. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
-
-    <!-- Tawk.to Live-Chat Code -->
-    <script type="text/javascript">
-        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-        (function() {
-            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/YOUR_PROPERTY_ID/default';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
-    </script>
 </body>
 </html>
