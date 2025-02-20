@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://deinname.github.io/sitemap.xml
+Sitemap: https://shopmatejunior.github.io/sitemap.xml
