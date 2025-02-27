@@ -6,7 +6,6 @@
     <title>ShopMate</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-	<link rel="icon" type="image/png" href="favicon-3.png">
     <style>
         body, html {
             margin: 0;
@@ -17,29 +16,34 @@
             color: #ffffff;
             overflow-x: hidden;
             scroll-behavior: smooth;
+			scroll-padding-top: 3vh;
         }
 
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem;
+            padding: 0.3rem;
             background-color: #011833;
             position: fixed;
             width: 100%;
-            max-height: 5%;
             z-index: 1000;
+			max-height: 5%;
             top: 0;
+			flex-wrap: nowrap;
+			padding-right: 1rem;
+			
         }
 
         .header a {
             color: #ffffff;
             text-decoration: none;
-            margin: 0 1rem;
+            margin: 0 0.5rem;
             font-weight: bold;
             transition: color 0.3s;
 			display: inline-block;
 			padding: 0.5rem 1rem;
+			font-size: 0.8em;
 
 
         }
@@ -53,19 +57,23 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            
             text-align: center;
             padding-top: min(250px, 12vh);
+			width: 100%;
+			box-sizing: border-box;
         }
 
         .container h1 {
-            font-size: 64px;
+            font-size: calc(1.5rem + 5vw);
             margin: 1rem 0;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+			width: 100%;
+			max-width: 90%;
+			padding: 0 10px;
         }
 
         .container p {
-            font-size: 30px;
+            font-size: 1.2rem;
             margin: 1rem 0;
             max-width: 100%;
         }
@@ -76,9 +84,10 @@
         }
 
         .buttons img {
-            width: 15%;
+            width: 50%;
             cursor: pointer;
 			border-radius: 30px;
+			transition: transform 0.3s ease;
         }
 
         .app-preview {
@@ -99,7 +108,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             padding: 1rem;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s;
@@ -135,19 +144,27 @@
         .app-content {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-start;
+            align-items: flex-start;
             text-align: left;
             color: #333;
             font-weight: bold;
             padding: 1rem;
             font-size: 5px;
+			line-height: 1.5;
+			width: 100%;
         }
+		
 
         .app-content p {
             margin: 0.5rem 0;
-            font-size: 18px;
+            list-style-type: none;
         }
+		
+		.app-content p:before {
+			content: '•'; /* Fügt Aufzählungszeichen hinzu */
+			padding-right: 0.5rem;
+		}
 
         .section {
             padding: 2rem;
@@ -160,6 +177,10 @@
             box-sizing: border-box;
         }
 
+		 #app, #funktionen, #about {
+			scroll-margin-top: 2.5vh;
+		}
+			
         .section h2 {
             font-size: 56px;
             margin: 1rem 0;
@@ -313,7 +334,13 @@
         }
 
         @media (max-width: 768px) {
-            .phone {
+            .header {
+				
+			}
+			.header a {
+				margin: 0 0.2rem;
+			}
+			.phone {
                 width: 150px;
                 height: 330px;
             }
@@ -338,12 +365,15 @@
                 font-size: 16px;
             }
 			.vision-section {
-        padding: 1rem; 
-    }
+				padding: 1rem; 
+			}
         }
 
         @media (max-width: 480px) {
-            .phone {
+            .header a {
+				font-size: 0.6em;
+			}
+			.phone {
                 width: 120px;
                 height: 260px;
             }
@@ -365,7 +395,7 @@
             }
 
             .footer-content p {
-                font-size: 14px;
+                font-size: 14px;	
             }
         }
     </style>
@@ -380,7 +410,7 @@
     
     <div id="home" class="container">
         <h1>Willkommen</h1>
-        <p>ShopMate</p>
+		<p> Bitte hier klicken </p>
         <div class="buttons">
             <a href="https://shopmate-89d91.firebaseapp.com/" target="_blank">
                 <img src="shopmateprodukte.jpg" alt="Download ShopMate App im App Store" class="shopmateprodukte">
@@ -390,18 +420,18 @@
             <div class="phone">
                 <div class="app-content">
                     <p>Einkaufsliste:</p>
-                    <p>- Äpfel</p>
-                    <p>- Brot</p>
-                    <p>- Milch</p>
-                    <p>- Eier</p>
+                    <p> Äpfel</p>
+                    <p> Brot</p>
+                    <p> Milch</p>
+                    <p> Eier</p>
                 </div>
             </div>
             <div class="phone">
                 <div class="app-content">
                     <p>Weitere Notizen:</p>
-                    <p>- Haargel</p>
-                    <p>- Shampoo</p>
-                    <p>- Make-up</p>
+                    <p> Haargel</p>
+                    <p> Shampoo</p>
+                    <p> Make-up</p>
                 </div>
             </div>
         </div>
