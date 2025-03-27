@@ -1,0 +1,452 @@
+/* 
+  ------------------------------------------------------------
+  Grundlegende Farben gemäß Vorgaben:
+  
+  Hauptfarben:
+    #011833 (Primär)
+    #0099CD (Sekundär)
+  Verlaufsfarben:
+    #098FD2 -> #00274D
+  Textfarben:
+    Haupttext: #0D1A2E
+    Sekundärtext: #4A5A6A
+  Hintergrund: #F4FAFD
+  ------------------------------------------------------------
+*/
+
+/* Globale Einstellungen */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font-family: 'Roboto Slab', serif;
+    background-color: #F4FAFD;
+    /* Sehr helles Blau als Grund-Hintergrund */
+    color: #0D1A2E;
+    /* Haupttextfarbe */
+    /* Sorgt dafür, dass die Sektionen nicht vom fixen Header überdeckt werden */
+    scroll-behavior: smooth;
+    /* Scroll-Offset für Anker-Links, damit Überschriften nicht abgeschnitten werden */
+    scroll-padding-top: 70px;
+}
+
+/* Animationen */
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 1s ease forwards;
+}
+
+.fade-in-down {
+    animation: fadeInDown 1s ease forwards;
+}
+
+/* Header / Navigation */
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #011833;
+    /* Hauptfarbe (dunkles Blau) */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 0.5rem;
+}
+
+.brand-name {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0099CD;
+    /* Sekundärfarbe */
+}
+
+/* Hero-Bereich */
+
+.hero-section {
+    width: 100%;
+    min-height: 80vh;
+    background: linear-gradient(135deg, #098FD2 0%, #00274D 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 1rem 2rem;
+    /* 6rem oben für Platz unter dem fixen Header + visuelles Padding */
+}
+
+.hero-content {
+    max-width: 800px;
+    color: #ffffff;
+    /* Weißer Text für Kontrast auf dem Gradient */
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    /* Bold für Überschriften */
+}
+
+/* Logo doppelt so groß wie H1 (bis zu 6rem, wenn H1 max. 3rem ist) */
+.hero-logo {
+    display: block;
+    height: clamp(4rem, 10vw, 6rem);
+    margin: 0 auto 1.5rem;
+    /* zentriert + Abstand nach unten */
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* CTA Button */
+
+.cta-button {
+    display: inline-block;
+    background-color: #0099CD;
+    /* Sekundärfarbe */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #081B30;
+    /* Abgeleitetes dunkles Blau */
+    transform: scale(1.05);
+}
+
+/* Vorschau / Phones */
+
+.preview-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+.phone {
+    width: 200px;
+    height: 420px;
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform 0.3s;
+}
+
+.phone:hover {
+    transform: translateY(-5px);
+}
+
+.phone-content {
+    padding: 1rem;
+    color: #0D1A2E;
+    /* Dunkles Blau-Grau (Haupttext) */
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.phone-content p {
+    margin-bottom: 0.5rem;
+}
+
+/* "App"-Abschnitt */
+
+.app-section {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #F4FAFD;
+}
+
+.app-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.app-section p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #4A5A6A;
+    /* Sekundärtext-Farbe */
+}
+
+.button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: #011833;
+    /* Primäre Akzentfarbe */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background: #0099CD;
+    /* Sekundärfarbe */
+    transform: scale(1.05);
+}
+
+/* Funktionen-Abschnitt */
+
+.funktionen-section {
+    background-color: #ffffff;
+    color: #0D1A2E;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.funktionen-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.icon-box {
+    text-align: center;
+    width: 150px;
+}
+
+.icon-box img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s;
+}
+
+.icon-box img:hover {
+    transform: scale(1.1);
+}
+
+.icon-box p {
+    font-size: 1rem;
+    color: #4A5A6A;
+    font-weight: 600;
+}
+
+/* Über uns */
+
+.about-section {
+    background-color: #F4FAFD;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.about-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.about-section p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4A5A6A;
+}
+
+/* Footer */
+
+.footer {
+    background-color: #011833;
+    color: #ffffff;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-content h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.footer-content p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.footer-link {
+    color: #0099CD;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.social-media {
+    margin: 1rem 0;
+}
+
+.social-media a {
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+.social-media img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.social-media img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Breakpoints */
+
+/* Ab 768px abwärts: Navigation wird umgebrochen und unter das Logo gelegt */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    .logo-container {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .preview-section {
+        flex-direction: column;
+    }
+
+    .icon-container {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-name {
+        font-size: 1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-logo {
+        height: clamp(3rem, 30vw, 5rem);
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        padding: 0.5rem 1rem;
+    }
+
+    .phone {
+        width: 150px;
+        height: 320px;
+    }
+}

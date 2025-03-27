@@ -1,495 +1,135 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-<meta name="google-site-verification" content="H7PYZ-MqRlXXXvn0p4xl6ov8fUdvyrBn5poCk5Zo85M" />
-<title>ShopMate – Dein smarter Shopping-Assistent</title>
-<meta name="description" content="ShopMate hilft dir, smarter und effizienter einzukaufen. Erhalte personalisierte Empfehlungen und spare Zeit!">
-<meta name="keywords" content="shopmate einkauf, shopmate, SHOPMATE, einkaufen, Einkaufsliste, juniorshopmate, Junior Shop Mate, JuniorShopMate, shop mate junior, shopmate junior, shopmatejunior, Shop Mate Junior, ShopMateJunior, shop mate, Shop Mate, shop Mate, Shop mate, SHOPMATE, shopmate, SHOP MATE, Junior Einkaufsliste,shop mate liste, Junior Einkauf, Einkauf, einkaufen, shop mate einkaufe, Shop Mate Einkaufen, Einkaufsliste, Shopmate Einkaufsliste, Junior, Shopmate, shopmate, einkaufen, Einkaufsliste, Shop Mate, Junior Company,ShopMateJunior, ShopMate, Shopping Assistent, Online Einkaufen, Smarte Empfehlungen, Smart Einkaufen">
-<meta name="robots" content="index, follow">
     <meta charset="UTF-8">
+    <title>ShopMate</title>
+    <meta name="description" content="Smart geplant, stressfrei geshoppt - mit ShopMate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO / Social Media -->
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Smart geplant, stressfrei geshoppt - mit ShopMate">
+    <meta property="og:description" content="Plane deine Einkäufe effizienter und spare Zeit mit ShopMate!">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon.png">
+
+    <!-- Google Fonts: Roboto Slab -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-	<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 
-
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-size: clamp(1em, 2.8vw, 1.75em);
-            font-family: 'Roboto Slab', serif;
-            background-color: #3B3678;
-            color: #ffffff;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-			scroll-padding-top: 3vh;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.3rem;
-            background-color: #011833;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-			max-height: 5%;
-            top: 0;
-			flex-wrap: nowrap;
-			padding-right: 1rem;
-			
-        }
-
-        .header a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 0.5rem;
-            font-weight: bold;
-            transition: color 0.3s;
-			display: inline-block;
-			padding: 0.5rem 1rem;
-			font-size: 0.8em;
-
-
-        }
-
-        .header a:hover {
-            color: #FFD700;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: min(250px, 12vh);
-			width: 100%;
-			box-sizing: border-box;
-        }
-
-        .container h1 {
-            font-size: calc(1.5rem + 5vw);
-            margin: 1rem 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-			width: 100%;
-			max-width: 90%;
-			padding: 0 10px;
-        }
-
-        .container p {
-            font-size: 1.2rem;
-            margin: 1rem 0;
-            max-width: 100%;
-        }
-
-        .buttons {
-            margin: 1rem 0;
-            gap: 1rem;
-        }
-
-        .buttons img {
-            width: 50%;
-            cursor: pointer;
-			border-radius: 30px;
-			transition: transform 0.3s ease;
-        }
-
-        .app-preview {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin: 1rem 0;
-        }
-
-        .phone {
-            width: 200px;
-            height: 440px;
-            background: #ffffff;
-            border-radius: 40px;
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 1rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s;
-            border: 5px solid #3B3678;
-            border-color: grey;
-            flex-shrink: 0;
-        }
-
-        .phone:hover {
-            transform: scale(1.05);
-        }
-
-        .phone::before, .phone::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 5px;
-            background: #333;
-            border-radius: 10px;
-        }
-
-        .phone::before {
-            top: 10px;
-        }
-
-        .phone::after {
-            bottom: 10px;
-            width: 80px;
-        }
-
-        .app-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            text-align: left;
-            color: #333;
-            font-weight: bold;
-            padding: 1rem;
-            font-size: 3px;
-			line-height: 1.5;
-			width: 100%;
-			padding-left: 0.1px;
-        }
-		
-
-        .app-content p {
-            margin: 0.3rem 0;
-            list-style-type: none;
-        }
-		
-		.app-content p:before {
-			content: '•'; /* Fügt Aufzählungszeichen hinzu */
-			padding-right: 0.3rem;
-		}
-
-        .section {
-            padding: 2rem;
-            text-align: center;
-            background: #fff;
-            color: #333;
-            width: 100%;
-            margin: 1rem 0;
-            min-height: 400px;
-            box-sizing: border-box;
-        }
-
-		 #app, #funktionen, #about {
-			scroll-margin-top: 2.5vh;
-		}
-			
-        .section h2 {
-            font-size: 56px;
-            margin: 1rem 0;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-
-        .section p {
-            text-align: center;
-            line-height: 1.6;
-            font-size: 20px;
-            margin: 1rem 0;
-        }
-
-        .section .button {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #3B3678;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            border: 2px solid #3B3678;
-            transition: background 0.3s, color 0.3s;
-            margin: 1rem 0;
-        }
-
-        .section .button:hover {
-            background: #fff;
-            color: #3B3678;
-        }
-
-        .content {
-            max-width: 100%;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-        }
-
-        .left, .right {
-            flex: 1;
-            padding: 1rem;
-        }
-
-        #funktionen {
-            color: white;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			
-            background-color: #3B3678;
-            width: 100%;
-            max-width: 100%;
-            padding: 2rem 0;
-            box-sizing: border-box;
-            margin: auto;
-        }
-
-        #funktionen p {
-            text-align: center;
-            line-height: 1.6;
-            font-size: 16px;
-            margin: 1rem 0;
-        }
-
-        .icon-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-
-        .icon {
-            text-align: center;
-        }
-
-        .icon img {
-            width: 50px;
-            height: 50px;
-        }
-
-        .vision-section {
-            background-color: #ffffff;
-            color: #333;
-            max-width: 100%;
-            margin:0;
-			box-sizing: border-box;
-			overflow: hidden;
-            min-height: 15%;
-            padding: 2rem;
-        }
-
-        .vision-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 100%;
-            padding: 1rem;
-        }
-
-        .vision-content .text {
-            font-weight: bold;
-            font-size: 20px;
-            text-align: center;
-            line-height: 1.6;
-            margin: 1rem 0;
-        }
-
-        .footer {
-            background-color: #011833;
-            color: #ffffff;
-            padding: 2rem;
-			margin: 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 100%;
-            margin: auto;
-        }
-
-        .footer-content h3 {
-            margin: 1rem 0;
-            font-size: 24px;
-        }
-
-        .footer-content p {
-            margin: 1rem 0;
-            font-size: 18px;
-        }
-
-        .social-media a {
-            margin: 0 1rem;
-            text-decoration: none;
-            color: #3B3678;
-            transition: color 0.4s;
-        }
-
-        .social-media a:hover {
-            color: #FFD700;
-        }
-
-        .social-media img {
-            margin: 1rem 0;
-            width: 5%;
-            cursor: pointer;
-            border-radius: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-				
-			}
-			.header a {
-				margin: 0 0.2rem;
-			}
-			.phone {
-                width: 150px;
-                height: 330px;
-            }
-
-            .section {
-                padding: 1rem;
-            }
-
-            .section h2 {
-                font-size: 40px;
-            }
-
-            .section p {
-                font-size: 16px;
-            }
-
-            .footer-content h3 {
-                font-size: 20px;
-            }
-
-            .footer-content p {
-                font-size: 16px;
-            }
-			.vision-section {
-				padding: 1rem; 
-			}
-        }
-
-        @media (max-width: 480px) {
-            .header a {
-				font-size: 0.6em;
-			}
-			.phone {
-                width: 120px;
-                height: 260px;
-            }
-
-            .section {
-                padding: 0.5rem;
-            }
-
-            .section h2 {
-                font-size: 32px;
-            }
-
-            .section p {
-                font-size: 14px;
-            }
-
-            .footer-content h3 {
-                font-size: 18px;
-            }
-
-            .footer-content p {
-                font-size: 14px;	
-            }
-        }
-    </style>
+    <!-- Externes CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div class="header">
-        <a href="#home">Start</a>
-        <a href="#app">Die App</a>
-        <a href="#funktionen">Funktionen</a>
-        <a href="#about">Über uns</a>
-    </div>
-    
-    <div id="home" class="container">
-        <h1>Willkommen</h1>
-		<p> Um zur App zu gelangen, müssen sie auf das Logo darunter klicken! </p>
-        <div class="buttons">
-            <a href="https://shopmate-89d91.firebaseapp.com/" target="_blank">
-                <img src="shopmateprodukte.jpg" alt="Download ShopMate App im App Store" class="shopmateprodukte">
-            </a>
-        </div>
-        <div class="app-preview">
-            <div class="phone">
-                <div class="app-content">
-                    <p>Einkaufsliste:</p>
-                    <p> Äpfel</p>
-                    <p> Brot</p>
-                    <p> Milch</p>
-                    <p> Eier</p>
-                </div>
-            </div>
-            <div class="phone">
-                <div class="app-content">
-                    <p>Weitere Notizen:</p>
-                    <p> Haargel</p>
-                    <p> Shampoo</p>
-                    <p> Make-up</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div id="app" class="section">
-        <div class="content">
-            <div class="left">
-                <h2>ShopMate - Die Zukunft unserer Einkaufsliste</h2>
-                <p>Unsere innovative App bietet eine nahtlose Einkaufserfahrung mit einer benutzerfreundlichen Oberfläche.</p>
-                <a href="#funktionen" class="button">Erfahren Sie mehr</a>
-            </div>
-        </div>
-    </div>
-    
-    <div id="funktionen" class="section">
-        <h2>Funktionen</h2>
-        <div class="icon-container">
-            <div class="icon">
-                <img src="person_icon.png" alt="Benutzerfreundlich">
-                <p>Benutzerfreundlich</p>
-            </div>
-            <div class="icon">
-                <img src="lock_icon.png" alt="Sichere Zahlung">
-                <p>Sichere Zahlung</p>
-            </div>
-        </div>
-    </div>
-    
-    <div id="about" class="vision-section">
-        <div class="vision-content">
-            <div class="text">
-                <p>Wir bei ShopMate sind leidenschaftlich daran interessiert, unseren Kunden die besten Einkaufserlebnisse zu bieten. Unsere App wird ständig weiterentwickelt, um Ihren Bedürfnissen gerecht zu werden.</p>
-            </div>
-        </div>
-    </div>
 
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <nav class="nav-container fade-in-down">
+            <div class="logo-container">
+                <img src="logoSchrift.png" alt="ShopMate Logo Schrift" class="logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Start</a></li>
+                <li><a href="#app">Die App</a></li>
+                <li><a href="#funktionen">Funktionen</a></li>
+                <li><a href="#about">Über uns</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero-Bereich -->
+    <main id="home">
+        <section class="hero-section fade-in-up">
+            <div class="hero-content">
+                <h1>Willkommen bei</h1>
+                <!-- Logo doppelt so groß wie H1 -->
+                <img src="logo.png" alt="ShopMate Logo" class="hero-logo">
+                <p>Plane deine Einkäufe effizienter und spare Zeit – mit deinem smarten Einkaufs-Assistenten.</p>
+                <a href="https://shopmate-89d91.firebaseapp.com/" target="_blank" class="cta-button">
+                    Jetzt zur App
+                </a>
+            </div>
+        </section>
+
+        <!-- Vorschau / Phones -->
+        <section class="preview-section fade-in-up">
+            <div class="phone">
+                <div class="phone-content">
+                    <p>Einkaufsliste:</p>
+                    <p>• Äpfel</p>
+                    <p>• Brot</p>
+                    <p>• Milch</p>
+                    <p>• Eier</p>
+                </div>
+            </div>
+            <div class="phone">
+                <div class="phone-content">
+                    <p>Weitere Notizen:</p>
+                    <p>• Haargel</p>
+                    <p>• Shampoo</p>
+                    <p>• Make-up</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Über die App -->
+        <section id="app" class="app-section fade-in-up">
+            <h2>Die Zukunft unserer Einkaufsliste</h2>
+            <p>Unsere innovative App bietet eine nahtlose Einkaufserfahrung mit einer benutzerfreundlichen Oberfläche.
+            </p>
+            <a href="#funktionen" class="button">Erfahren Sie mehr</a>
+        </section>
+
+        <!-- Funktionen -->
+        <section id="funktionen" class="funktionen-section fade-in-up">
+            <h2>Funktionen</h2>
+            <div class="icon-container">
+                <div class="icon-box">
+                    <img src="person.png" alt="Icon: Benutzer" loading="lazy">
+                    <p>Benutzerfreundlich</p>
+                </div>
+                <div class="icon-box">
+                    <img src="lock.png" alt="Icon: Schloss" loading="lazy">
+                    <p>Sichere Zahlung</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Über uns -->
+        <section id="about" class="about-section fade-in-up">
+            <h2>Über uns</h2>
+            <p>Wir bei ShopMate sind leidenschaftlich daran interessiert, unseren Kunden die besten Einkaufserlebnisse
+                zu bieten. Unsere App wird ständig weiterentwickelt, um Ihren Bedürfnissen gerecht zu werden.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
+        <div class="footer-content fade-in-up">
             <h3>Kontaktieren Sie uns</h3>
             <p><strong>Adresse:</strong> Davisstraße 5</p>
-            <p><strong>E-Mail:</strong> <a href="mailto:shopmate.junior@gmail.com" style="color: #3B3678;">shopmate.junior@gmail.com</a></p>
-            <p><strong>Telefon:</strong> <a href="tel:+436649243376" style="color: #3B3678;">+43 664 9243376</a></p>
+            <p>
+                <strong>E-Mail:</strong>
+                <a href="mailto:shopmate.junior@gmail.com" class="footer-link">shopmate.junior@gmail.com</a>
+            </p>
+            <p>
+                <strong>Telefon:</strong>
+                <a href="tel:+436649243376" class="footer-link">+43 664 9243376</a>
+            </p>
             <div class="social-media">
-                <a href="https://www.tiktok.com/@shop.mate.junior"><img src="tiktok.png" alt="TikTok"></a>
-                <a href="https://www.instagram.com/shop.mate.junior/"><img src="instagram.png" alt="Instagram"></a>
-                <a href="https://open.spotify.com/playlist/6KA0RI95g7UzdfeoRykEck?si=7-5Z8xn_Sa-KA3jTPXzzWA&pi=yv4OZWdqQgyQI"><img src="spotify.png" alt="Spotify"></a>
+                <a href="https://www.tiktok.com/@shop.mate.junior">
+                    <img src="tiktok.png" alt="TikTok Logo" loading="lazy">
+                </a>
+                <a href="https://www.instagram.com/shop.mate.junior/">
+                    <img src="instagram.png" alt="Instagram Logo" loading="lazy">
+                </a>
             </div>
-            <p>&copy; 2024 ShopMate.</p>
+            <p>&copy; 2024 ShopMate</p>
         </div>
     </footer>
 </body>
+
 </html>
