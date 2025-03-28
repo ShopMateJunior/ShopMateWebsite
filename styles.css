@@ -481,28 +481,45 @@ body {
   ------------------------------------------------------------
   Diashow Styles:
   Diese Regeln definieren die Darstellung einer Bild-Diashow,
-  bei der die Bilder nach einem Zeitabstand automatisch wechseln.
+  die an die Bildschirmhöhe angepasst ist, mit gleichmäßigem 
+  vertikalen Padding, abgerundeten Ecken und schwarzen Rändern,
+  wie bei einem Smartphone.
   ------------------------------------------------------------
 */
 
 .slideshow-container {
     position: relative;
-    max-width: 800px;
-    margin: 2rem auto;
-    /* Zentriert mit Abstand */
+    width: 100%;
+    height: 100vh;
+    /* Container passt sich der vollen Bildschirmhöhe an */
+    margin: 0 auto;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0099CD;
+    /* Schwarzer Hintergrund als Rahmen */
 }
 
 .slide {
-    width: 100%;
+    /* Das Bild soll vollständig angezeigt werden, ohne zugeschnitten zu werden */
+    max-height: 75%;
+    width: auto;
+    object-fit: contain;
+    object-position: center;
     opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
     transition: opacity 1s ease-in-out;
+    border: 10px solid #000;
+    /* Schwarze Ränder */
+    border-radius: 30px;
+    /* Abgerundete Ecken, ähnlich einem Smartphone */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .slide.active {
     opacity: 1;
-    position: relative;
+    /* Die Position bleibt durch absolute Zentrierung erhalten */
 }
