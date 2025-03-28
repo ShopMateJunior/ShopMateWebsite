@@ -182,8 +182,8 @@ body {
     transform: scale(1.05);
 }
 
-/* Vorschau / Phones */
-
+/* Vorschau / Phones – bisheriger Bereich, der durch die Diashow ersetzt wird */
+/* Du kannst diesen Block im HTML durch den Diashow-Bereich austauschen */
 .preview-section {
     display: flex;
     flex-wrap: wrap;
@@ -449,4 +449,60 @@ body {
         width: 150px;
         height: 320px;
     }
+}
+
+/* 
+  ------------------------------------------------------------
+  Anchor Scroll Adjustments:
+  Diese Regeln stellen sicher, dass beim Springen zu den
+  Anker-Sektionen (#home, #app, #funktionen, #about)
+  der fixierte Header den Inhalt nicht verdeckt.
+  ------------------------------------------------------------
+*/
+
+#home,
+#app,
+#funktionen,
+#about {
+    scroll-margin-top: 70px;
+}
+
+@media (max-width: 480px) {
+
+    #home,
+    #app,
+    #funktionen,
+    #about {
+        scroll-margin-top: 100px;
+    }
+}
+
+/* 
+  ------------------------------------------------------------
+  Diashow Styles:
+  Diese Regeln definieren die Darstellung einer Bild-Diashow,
+  bei der die Bilder nach einem Zeitabstand automatisch wechseln.
+  ------------------------------------------------------------
+*/
+
+.slideshow-container {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    /* Zentriert mit Abstand */
+    overflow: hidden;
+}
+
+.slide {
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    position: relative;
 }

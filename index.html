@@ -54,24 +54,20 @@
             </div>
         </section>
 
-        <!-- Vorschau / Phones -->
-        <section class="preview-section fade-in-up">
-            <div class="phone">
-                <div class="phone-content">
-                    <p>Einkaufsliste:</p>
-                    <p>• Äpfel</p>
-                    <p>• Brot</p>
-                    <p>• Milch</p>
-                    <p>• Eier</p>
-                </div>
-            </div>
-            <div class="phone">
-                <div class="phone-content">
-                    <p>Weitere Notizen:</p>
-                    <p>• Haargel</p>
-                    <p>• Shampoo</p>
-                    <p>• Make-up</p>
-                </div>
+        <!-- Diashow -->
+        <section class="slideshow fade-in-up">
+            <div class="slideshow-container">
+                <img class="slide" src="anmelden.jpg" alt="Bild 1">
+                <img class="slide" src="startseite.jpg" alt="Bild 2">
+                <img class="slide" src="profil.jpg" alt="Bild 3">
+                <img class="slide" src="einstellungen.jpg" alt="Bild 4">
+                <img class="slide" src="map.jpg" alt="Bild 5">
+                <img class="slide" src="favoritAuswaehlen.jpg" alt="Bild 6">
+                <img class="slide" src="favoritenListe.jpg" alt="Bild 7">
+                <img class="slide" src="listeErstellen.jpg" alt="Bild 8">
+                <img class="slide" src="liste.jpg" alt="Bild 9">
+                <img class="slide" src="benutzerEinladen.jpg" alt="Bild 10">
+                <!-- Weitere Bilder können hinzugefügt werden -->
             </div>
         </section>
 
@@ -130,6 +126,21 @@
             <p>&copy; 2024 ShopMate</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.slide');
+            function showSlides() {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slideIndex++;
+                if (slideIndex > slides.length) { slideIndex = 1; }
+                slides[slideIndex - 1].classList.add('active');
+                setTimeout(showSlides, 3000); // Bildwechsel alle 3 Sekunden
+            }
+            showSlides();
+        });
+    </script>
 </body>
 
 </html>
