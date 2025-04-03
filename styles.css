@@ -18,7 +18,7 @@
 
 /*------------------------------------------------------------
      Globale Einstellungen & Typografie
-  ------------------------------------------------------------*/
+------------------------------------------------------------*/
 * {
     box-sizing: border-box;
     margin: 0;
@@ -69,7 +69,7 @@ li {
 
 /*------------------------------------------------------------
      Animationen
-  ------------------------------------------------------------*/
+------------------------------------------------------------*/
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -104,10 +104,10 @@ li {
 
 /*------------------------------------------------------------
      Kapitel / Universelle Section-Klasse
-  ------------------------------------------------------------*/
+------------------------------------------------------------*/
 /* Diese Klasse kannst du optional in deinen HTML-Abschnitten verwenden,
-     falls du zusätzliche, einheitliche Abstände oder Hintergrundwechsel möchtest.
-     Alternierend: odd = var(--bg-default), even = var(--bg-white) */
+   falls du zusätzliche, einheitliche Abstände oder Hintergrundwechsel möchtest.
+   Alternierend: odd = var(--bg-default), even = var(--bg-white) */
 .section {
     text-align: center;
     padding: 2rem 1rem;
@@ -128,7 +128,7 @@ li {
 
 /*------------------------------------------------------------
      Hero-Bereich (Willkommen bei ShopMate)
-  ------------------------------------------------------------*/
+------------------------------------------------------------*/
 .hero-section {
     width: 100%;
     min-height: 80vh;
@@ -152,6 +152,7 @@ li {
 
 /* Zentrierter CTA-Button */
 .cta-button {
+    width: fit-content;
     display: block;
     background-color: var(--secondary);
     color: #ffffff;
@@ -168,9 +169,16 @@ li {
     transform: scale(1.05);
 }
 
+/* Fokus-Stile für verbesserte Barrierefreiheit */
+a:focus,
+button:focus {
+    outline: 3px solid var(--secondary);
+    outline-offset: 2px;
+}
+
 /*------------------------------------------------------------
      Diashow (Smartphone-App Bilder)
-  ------------------------------------------------------------*/
+------------------------------------------------------------*/
 .slideshow-container {
     position: relative;
     width: 100%;
@@ -204,7 +212,7 @@ li {
 
 /*------------------------------------------------------------
      Vision / Die Zukunft unserer Einkaufsliste
-  ------------------------------------------------------------*/
+------------------------------------------------------------*/
 .vision-section {
     padding: 2rem 1rem;
     background-color: var(--bg-default);
@@ -235,7 +243,7 @@ li {
 
 /*------------------------------------------------------------
      Unterstütze uns (Donate)
-  ------------------------------------------------------------*/
+------------------------------------------------------------*/
 .donate-section {
     padding: 2rem 1rem;
     background-color: var(--donate-bg);
@@ -243,7 +251,7 @@ li {
 
 /*------------------------------------------------------------
      Funktionen
-  ------------------------------------------------------------*/
+------------------------------------------------------------*/
 .funktionen-section {
     background-color: var(--bg-white);
     color: var(--text-main);
@@ -282,7 +290,7 @@ li {
 
 /*------------------------------------------------------------
      Über uns
-  ------------------------------------------------------------*/
+------------------------------------------------------------*/
 .about-section {
     padding: 2rem 1rem;
     background-color: var(--bg-default);
@@ -303,7 +311,7 @@ li {
 
 /*------------------------------------------------------------
      Footer (Kontaktieren Sie uns)
-  ------------------------------------------------------------*/
+------------------------------------------------------------*/
 .footer {
     background-color: var(--primary);
     color: #ffffff;
@@ -359,7 +367,7 @@ li {
 
 /*------------------------------------------------------------
      Responsive Breakpoints
-  ------------------------------------------------------------*/
+------------------------------------------------------------*/
 @media (max-width: 768px) {
     .nav-container {
         flex-wrap: wrap;
@@ -422,9 +430,30 @@ li {
     }
 }
 
+/* Zusätzliche Anpassungen für sehr kleine Bildschirme */
+@media (max-width: 320px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p,
+    li {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
 /*------------------------------------------------------------
      Anchor Scroll Adjustments
-  ------------------------------------------------------------*/
+------------------------------------------------------------*/
 #home,
 #app,
 #funktionen,
@@ -440,8 +469,4 @@ li {
     #about {
         scroll-margin-top: 100px;
     }
-}
-
-.gfm-embed {
-    background: transparent !important;
 }
