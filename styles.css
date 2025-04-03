@@ -11,12 +11,14 @@
     --bg-default: #F4FAFD;
     --bg-white: #ffffff;
     --bg-alt: #e6f2f8;
+    /* Alternierende Hintergrundfarbe für Kapitel */
     --donate-bg: #E0F5FB;
+    /* Heller Blauton für den Donate-Bereich */
 }
 
 /*------------------------------------------------------------
      Globale Einstellungen & Typografie
-------------------------------------------------------------*/
+  ------------------------------------------------------------*/
 * {
     box-sizing: border-box;
     margin: 0;
@@ -67,7 +69,7 @@ li {
 
 /*------------------------------------------------------------
      Animationen
-------------------------------------------------------------*/
+  ------------------------------------------------------------*/
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -101,10 +103,13 @@ li {
 }
 
 /*------------------------------------------------------------
-     Universelle Section-Klasse
-------------------------------------------------------------*/
-/* Für einheitliches Padding in allen Kapiteln */
+     Kapitel / Universelle Section-Klasse
+  ------------------------------------------------------------*/
+/* Diese Klasse kannst du optional in deinen HTML-Abschnitten verwenden,
+     falls du zusätzliche, einheitliche Abstände oder Hintergrundwechsel möchtest.
+     Alternierend: odd = var(--bg-default), even = var(--bg-white) */
 .section {
+    text-align: center;
     padding: 2rem 1rem;
 }
 
@@ -122,8 +127,8 @@ li {
 }
 
 /*------------------------------------------------------------
-     Hero-Bereich – "Willkommen bei ShopMate"
-------------------------------------------------------------*/
+     Hero-Bereich (Willkommen bei ShopMate)
+  ------------------------------------------------------------*/
 .hero-section {
     width: 100%;
     min-height: 80vh;
@@ -145,6 +150,7 @@ li {
     margin: 0 auto 1.5rem;
 }
 
+/* Zentrierter CTA-Button */
 .cta-button {
     display: block;
     background-color: var(--secondary);
@@ -163,13 +169,8 @@ li {
 }
 
 /*------------------------------------------------------------
-     Diashow – "Diashow der App Bilder"
-------------------------------------------------------------*/
-.slideshow {
-    overflow: hidden;
-    padding: 2rem 0;
-}
-
+     Diashow (Smartphone-App Bilder)
+  ------------------------------------------------------------*/
 .slideshow-container {
     position: relative;
     width: 100%;
@@ -202,8 +203,8 @@ li {
 }
 
 /*------------------------------------------------------------
-     Vision – "Die Zukunft unserer Einkaufsliste"
-------------------------------------------------------------*/
+     Vision / Die Zukunft unserer Einkaufsliste
+  ------------------------------------------------------------*/
 .vision-section {
     padding: 2rem 1rem;
     background-color: var(--bg-default);
@@ -233,8 +234,8 @@ li {
 }
 
 /*------------------------------------------------------------
-     Unterstütze uns – "Unterstütze uns"
-------------------------------------------------------------*/
+     Unterstütze uns (Donate)
+  ------------------------------------------------------------*/
 .donate-section {
     padding: 2rem 1rem;
     background-color: var(--donate-bg);
@@ -242,7 +243,7 @@ li {
 
 /*------------------------------------------------------------
      Funktionen
-------------------------------------------------------------*/
+  ------------------------------------------------------------*/
 .funktionen-section {
     background-color: var(--bg-white);
     color: var(--text-main);
@@ -280,8 +281,8 @@ li {
 }
 
 /*------------------------------------------------------------
-     Über uns – "Über uns"
-------------------------------------------------------------*/
+     Über uns
+  ------------------------------------------------------------*/
 .about-section {
     padding: 2rem 1rem;
     background-color: var(--bg-default);
@@ -301,8 +302,8 @@ li {
 }
 
 /*------------------------------------------------------------
-     Footer – "Kontaktieren Sie uns"
-------------------------------------------------------------*/
+     Footer (Kontaktieren Sie uns)
+  ------------------------------------------------------------*/
 .footer {
     background-color: var(--primary);
     color: #ffffff;
@@ -358,10 +359,8 @@ li {
 
 /*------------------------------------------------------------
      Responsive Breakpoints
-------------------------------------------------------------*/
+  ------------------------------------------------------------*/
 @media (max-width: 768px) {
-
-    /* Navigationselemente (falls vorhanden) */
     .nav-container {
         flex-wrap: wrap;
     }
@@ -416,11 +415,16 @@ li {
     .cta-button {
         padding: 0.5rem 1rem;
     }
+
+    .phone {
+        width: 150px;
+        height: 320px;
+    }
 }
 
 /*------------------------------------------------------------
      Anchor Scroll Adjustments
-------------------------------------------------------------*/
+  ------------------------------------------------------------*/
 #home,
 #app,
 #funktionen,
@@ -436,4 +440,8 @@ li {
     #about {
         scroll-margin-top: 100px;
     }
+}
+
+.gfm-embed {
+    background: transparent !important;
 }
